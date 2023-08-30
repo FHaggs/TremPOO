@@ -24,6 +24,8 @@ public class Vagao {
         this.trem = trem;
     }
 
+
+
     @Override
     public String toString(){
         return "Vagão: " + id + "," + capacidadeCarga;

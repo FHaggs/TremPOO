@@ -25,5 +25,8 @@ public class Locomotiva {
     public Trem getTrem() {
         return trem;
     }
+    public void setTrem(Trem t){
+        this.trem = t;
+    }
     
 }

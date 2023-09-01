@@ -75,16 +75,31 @@ public class Trem {
     public String toString(){
 
         StringBuilder s = new StringBuilder();
-
-        s.append("Locomotivas: \n");
+        s.append("Trem n"+ id +": \nCapacidade("+ pesoAtual +"/"+ maxCapacidade +" toneladas)\n");
+        s.append("\nLocomotivas: \n");
 
         for(int i = 0; i < locomotivas.size(); i++){
-            s.append(locomotivas.get(i).getId()).append(", ");
+            s.append(locomotivas.get(i).getId());
+
+            if(i == locomotivas.size() - 1){
+                s.append(".");
+            } else {
+                s.append(", ");
+            }
+
         }
-        s.append("\nVagões: \n");
+        s.append("\n\nVagões("+ vagoes.size() +"/"+ maxVagoes +"): \n");
 
         for(int i = 0; i < vagoes.size(); i++){
-            s.append(vagoes.get(i).getId()).append(", ");
+            
+            s.append(vagoes.get(i).getId());
+            
+            if(i == vagoes.size() - 1){
+                s.append(".");
+            } else {
+                s.append(", ");
+            }
+
         }
         s.append("\n");
         return s.toString();

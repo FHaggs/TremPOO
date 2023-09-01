@@ -25,6 +25,9 @@ public class Vagao {
     public void setTrem(Trem trem) {
         this.trem = trem;
     }
+    public void sairTrem(){
+        this.trem = null;
+    }
 
 
 

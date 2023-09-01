@@ -28,5 +28,8 @@ public class Locomotiva {
     public void setTrem(Trem t){
         this.trem = t;
     }
+    public void sairTrem(){
+        this.trem = null;
+    }
     
 }

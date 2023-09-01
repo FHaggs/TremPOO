@@ -38,7 +38,11 @@ public class App {
            switch(opcao) {
             case 1:
                 criarTrem(p1, garagemLocomotivas);
-            
+            case 2:
+                //editarTrem();
+
+            case 3:
+                System.out.println(p1);
             }
 
 
@@ -54,6 +58,7 @@ public class App {
         System.out.print(p1);
         input.close();
     }
+
     public static void criarTrem(Patio p1, GaragemLocomotivas garagemLocomotivas){
 
         System.out.println("Digite o id do novo trem");

@@ -1,9 +1,9 @@
 public class Vagao {
     private int id;
-    private double capacidadeCarga;
+    private int capacidadeCarga;
     private Trem trem;
 
-    public Vagao(int id, double capacidadeCarga) {
+    public Vagao(int id, int capacidadeCarga) {
         this.id = id;
         this.capacidadeCarga = capacidadeCarga;
     }
@@ -12,7 +12,7 @@ public class Vagao {
         return id;
     }
 
-    public double getCapacidadeCarga() {
+    public int getCapacidadeCarga() {
         return capacidadeCarga;
     }
 

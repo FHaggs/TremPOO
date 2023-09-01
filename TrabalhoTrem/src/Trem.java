@@ -38,6 +38,7 @@ public class Trem {
         if(locomotivas.isEmpty() || vagoes.size() >= maxVagoes || pesoAtual + vagao.getCapacidadeCarga() > maxCapacidade){
             return false;
         }
+        
         vagoes.add(vagao);
         vagao.setTrem(this);
         pesoAtual += vagao.getCapacidadeCarga();
@@ -71,5 +72,22 @@ public class Trem {
         return aux;
     }
 
+    public String toString(){
+
+        StringBuilder s = new StringBuilder();
+
+        s.append("Locomotivas: \n");
+
+        for(int i = 0; i < locomotivas.size(); i++){
+            s.append(locomotivas.get(i).getId()).append(", ");
+        }
+        s.append("\nVagões: \n");
+
+        for(int i = 0; i < vagoes.size(); i++){
+            s.append(vagoes.get(i).getId()).append(", ");
+        }
+        s.append("\n");
+        return s.toString();
+    }
 }
 

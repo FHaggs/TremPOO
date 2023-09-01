@@ -1,6 +1,8 @@
 public class Vagao {
     private int id;
+
     private int capacidadeCarga;
+
     private Trem trem;
 
     public Vagao(int id, int capacidadeCarga) {

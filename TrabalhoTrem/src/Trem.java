@@ -16,6 +16,13 @@ public class Trem {
         maxCapacidade = 0;
         pesoAtual = 0;
     }
+    public int getId(){
+        return id;
+    }
+
+    public boolean temVagao(){
+        return !vagoes.isEmpty();
+    }
 
     public boolean addLocomotiva(Locomotiva locomotiva){
         
@@ -50,7 +57,7 @@ public class Trem {
             return null;
         }
         Vagao aux = vagoes.get(vagoes.size() - 1);
-
+        aux.sairTrem();
         pesoAtual -= aux.getCapacidadeCarga();
 
         vagoes.remove(vagoes.size() - 1);
@@ -62,7 +69,7 @@ public class Trem {
         }
 
         Locomotiva aux = locomotivas.get(locomotivas.size() - 1);
-
+        aux.sairTrem();
         if(locomotivas.size() > 1){
             maxVagoes = maxVagoes + (int)(maxVagoes * 0.1);
         }

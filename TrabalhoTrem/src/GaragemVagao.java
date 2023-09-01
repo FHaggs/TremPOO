@@ -8,11 +8,25 @@ public class GaragemVagao {
         vagoes.add(v);
     }
     public Vagao retiraPorId(int id){
-        for(Vagao vagao: vagoes){
-            if(vagao.getId() == id){
-                return vagao;
+        for(Vagao v: vagoes){
+            if(v.getId() == id){
+                Vagao aux = v;
+                vagoes.remove(v);
+                return aux;
             }
         }
         return null;
+    }
+    @Override
+    public String toString(){
+
+        StringBuilder s = new StringBuilder();
+        s.append("\n Garagem: \n");
+
+        for(int i = 0; i < vagoes.size(); i++){
+            s.append(vagoes.get(i)).append("\n");
+        }
+        
+        return s.toString();
     }
 }

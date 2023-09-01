@@ -7,6 +7,15 @@ public class Patio {
         trems.add(t);
     }
     
+    public Trem getTrem(int id){
+        for(Trem trem: trems){
+            if(trem.getId() == id){
+                return trem;
+            }
+        }
+        return null;
+    }
+
     @Override
     public String toString(){
 

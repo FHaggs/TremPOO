@@ -117,5 +117,26 @@ public class Trem {
         s.append("\n");
         return s.toString();
     }
+    public ArrayList<Vagao> desmontaVagao(){
+        ArrayList<Vagao> aux = vagoes;
+        for(Vagao vagao: vagoes){
+            aux.add(vagao);
+        }
+        
+        vagoes.clear();
+
+        return aux;
+    }
+    public ArrayList<Locomotiva> desmontaLocomotiva(){
+        ArrayList<Locomotiva> aux = new ArrayList<Locomotiva>();
+        // Create copy 
+        for(Locomotiva l: locomotivas){
+            aux.add(l);
+        }
+
+        locomotivas.clear();
+
+        return aux;
+    }
 }
 

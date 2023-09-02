@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -52,12 +53,41 @@ public class App {
 
             case 3:
                 System.out.println(p1);
+                break;
+
+            case 4:
+                    System.out.println("Selecione um trem do patio para desmontar");
+    
+                    System.out.println(p1);
+    
+                    int idTremDesmontar = input.nextInt();
+    
+                    Trem desmontarTrem = p1.getTrem(idTremDesmontar);
+                    desmontaTrem(desmontarTrem, p1, garagemLocomotivas, garagemVagoes);
+                    break;
             }
 
 
         }
 
         input.close();
+    }
+    public static void desmontaTrem(Trem t, Patio p1, GaragemLocomotivas garagemLocomotivas, GaragemVagao garagemVagoes){
+        ArrayList<Vagao> vagoesLivres = t.desmontaVagao();
+        ArrayList<Locomotiva> locomotivasLivres = t.desmontaLocomotiva();
+
+        for(Vagao v: vagoesLivres){
+            v.sairTrem();
+            garagemVagoes.add(v);
+        }
+        for(Locomotiva l: locomotivasLivres){
+            l.sairTrem();
+            garagemLocomotivas.add(l);
+        }
+        p1.removePorId(t.getId());
+
+        System.out.println("Trem desmontado");
+        
     }
     private static void addLocomotiva(Trem t, GaragemLocomotivas garagemLocomotivas){
         System.out.println("Adicione uma locomotiva");

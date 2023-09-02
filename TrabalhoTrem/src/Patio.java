@@ -16,6 +16,17 @@ public class Patio {
         return null;
     }
 
+    public Trem removePorId(int id){
+        for(Trem t: trems){
+            if(t.getId() == id){
+                Trem aux = t;
+                trems.remove(t);
+                return aux;
+            }
+        }
+        return null;
+    }
+
     @Override
     public String toString(){
 

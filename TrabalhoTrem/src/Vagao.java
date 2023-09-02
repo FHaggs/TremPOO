@@ -33,7 +33,7 @@ public class Vagao {
 
     @Override
     public String toString(){
-        return "Vagão: " + id + ", Capacidade" + capacidadeCarga;
+        return "Vagão: " + id + ", Capacidade: " + capacidadeCarga;
     }
 
     

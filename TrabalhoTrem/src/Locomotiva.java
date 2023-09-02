@@ -31,5 +31,10 @@ public class Locomotiva {
     public void sairTrem(){
         this.trem = null;
     }
+
+    @Override
+    public String toString(){
+        return "Locomotiva: " + id + ", Capacidade: " + capacidadeToneladas;
+    }
     
 }

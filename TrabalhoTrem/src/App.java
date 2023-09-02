@@ -145,7 +145,18 @@ public class App {
                 System.out.println(v);
                 
             }else {
-                // Remover locomotiva (CUIDADO, não pode remover primeira locomotiva)
+                if(t.ultimaLocomotiva()){
+                    System.out.println("Não é possivel retirar a ultima locomotiva, se desejar é possivel desmontar esse trem");
+                    
+                }
+                else{
+
+                    Locomotiva l = t.retiraLocomotiva();
+                    garagemLocomotivas.add(l);
+                    System.out.println("Essa locomotiva foi retirada do trem e colocada na garagem");
+                    System.out.println(l);
+
+                }
             }
         }
 

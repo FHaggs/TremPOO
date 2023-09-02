@@ -101,7 +101,7 @@ public class Trem {
             }
 
         }
-        s.append("\n\nVagões("+ vagoes.size() +"/"+ maxVagoes +"): \n");
+        s.append("\n\nVagões("+ vagoes.size() +"/"+ maxVagoes +"):");
 
         for(int i = 0; i < vagoes.size(); i++){
             

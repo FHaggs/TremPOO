@@ -38,11 +38,16 @@ public class App {
 
            switch(opcao) {
                 case 1:
+                    if(!garagemLocomotivas.cheio()){
+                        System.out.println("\nA garagem de locomotivas está vazia");
+                        break;
+                    }
+
                     criarTrem(p1, garagemLocomotivas);
                     
                     break;
                 case 2:
-                    System.out.println("Selecione um trem do patio para editar");
+                    System.out.println("\nSelecione um trem do pátio para editar");
                     System.out.println(p1);
 
                     int idTrem = input.nextInt();
@@ -56,17 +61,23 @@ public class App {
                 break;
 
             case 4:
-                    System.out.println("Selecione um trem do patio para desmontar");
+                    if(p1.cheio()){
+                    
+                        System.out.println("\nSelecione um trem do pátio para desmontar:");
     
                     System.out.println(p1);
     
                     int idTremDesmontar = input.nextInt();
-    
+
                     Trem desmontarTrem = p1.getTrem(idTremDesmontar);
                     desmontaTrem(desmontarTrem, p1, garagemLocomotivas, garagemVagoes);
                     break;
-            }
 
+                    }
+                    
+                    System.out.println("\nO pátio está vazio, não é possivel desmontar");
+                    break;
+            }
 
         }
 
@@ -86,11 +97,11 @@ public class App {
         }
         p1.removePorId(t.getId());
 
-        System.out.println("Trem desmontado");
+        System.out.println("\nTrem desmontado\n");
         
     }
     private static void addLocomotiva(Trem t, GaragemLocomotivas garagemLocomotivas){
-        System.out.println("Adicione uma locomotiva");
+        System.out.println("\nAdicione uma locomotiva:\n");
         System.out.println(garagemLocomotivas);
 
         Locomotiva aux;
@@ -137,12 +148,12 @@ public class App {
         
 
 
-        System.out.println("Deseja adicionar partes ou remove-las?");
+        System.out.println("\nDeseja adicionar partes ou remove-las?");
         System.out.println("[1] Adicionar");
         System.out.println("[2] Remover");
         opcao = input.nextInt();
         while(opcao != 1 && opcao != 2){
-            System.out.println("Utilize uma opção valida.");
+            System.out.println("\nUtilize uma opção valida.");
             opcao = input.nextInt();
         }
 
@@ -150,18 +161,20 @@ public class App {
             if(t.temVagao()){
                 addVagao(t, garagemVagoes);
             }else {
-                System.out.println("Deseja adicionar uma locomotiva ou um vagão?");
+                System.out.println("\nDeseja adicionar uma locomotiva ou um vagão?");
                 System.out.println("[1] Locomotiva");
                 System.out.println("[2] Vagão");
                 opcao = input.nextInt();
                 while(opcao != 1 && opcao != 2){
-                    System.out.println("Utilize uma opção valida.");
+                    System.out.println("\nUtilize uma opção valida.");
                     opcao = input.nextInt();
                 }
-                if(opcao == 1){
+                if(opcao == 1 && garagemLocomotivas.cheio()){
                     addLocomotiva(t, garagemLocomotivas);
-                }else if(opcao == 2){
+                }else if(opcao == 2 && garagemVagoes.cheio()){
                     addVagao(t, garagemVagoes);
+                } else{
+                    System.out.println("\nParece que a garagem selecionada está vazia");
                 }
                 
             }
@@ -171,19 +184,19 @@ public class App {
                 // Remover  vagoes
                 Vagao v = t.retiraVagao();
                 garagemVagoes.add(v);
-                System.out.println("Esse Vagão for retirado do trem e colocado na garagem");
+                System.out.println("\nEsse Vagão for retirado do trem e colocado na garagem");
                 System.out.println(v);
                 
             }else {
                 if(t.ultimaLocomotiva()){
-                    System.out.println("Não é possivel retirar a ultima locomotiva, se desejar é possivel desmontar esse trem");
+                    System.out.println("\nNão é possivel retirar a ultima locomotiva, se desejar é possivel desmontar esse trem");
                     
                 }
                 else{
 
                     Locomotiva l = t.retiraLocomotiva();
                     garagemLocomotivas.add(l);
-                    System.out.println("Essa locomotiva foi retirada do trem e colocada na garagem");
+                    System.out.println("\nEssa locomotiva foi retirada do trem e colocada na garagem");
                     System.out.println(l);
 
                 }
@@ -195,17 +208,25 @@ public class App {
 
     public static void criarTrem(Patio p1, GaragemLocomotivas garagemLocomotivas){
 
-        System.out.println("Digite o id do novo trem");
+        System.out.println("\nDigite o id do novo trem:\n");
         int id = input.nextInt();
-        Trem novoTrem = new Trem(id);
-        p1.add(novoTrem);
 
-        addLocomotiva(novoTrem, garagemLocomotivas);
+        if(!p1.verificarId(id)){
+            System.out.println("\nId de trem já existe, tente outra Id\n");
+            
+        } else{
+            
+            Trem novoTrem = new Trem(id);
+            p1.add(novoTrem);
+            addLocomotiva(novoTrem, garagemLocomotivas);
 
+        }
+
+        
     }
 
     public static void opcoes(){
-        System.out.println("Digite uma opção: ");
+        System.out.println("\nDigite uma opção: ");
         System.out.println("[1] Criar trem");
         System.out.println("[2] Editar trem");
         System.out.println("[3] Listar trens");

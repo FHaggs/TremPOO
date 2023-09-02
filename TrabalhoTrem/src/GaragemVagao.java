@@ -4,6 +4,13 @@ public class GaragemVagao {
     
     private ArrayList<Vagao> vagoes = new ArrayList<Vagao>();
 
+    public boolean cheio(){
+        if(vagoes.isEmpty()){
+            return false;
+        }
+        return true;
+    }
+
     public void add(Vagao v){
         vagoes.add(v);
     }

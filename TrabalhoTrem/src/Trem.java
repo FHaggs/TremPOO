@@ -118,7 +118,7 @@ public class Trem {
         return s.toString();
     }
     public ArrayList<Vagao> desmontaVagao(){
-        ArrayList<Vagao> aux = vagoes;
+        ArrayList<Vagao> aux = new ArrayList<Vagao>();
         for(Vagao vagao: vagoes){
             aux.add(vagao);
         }

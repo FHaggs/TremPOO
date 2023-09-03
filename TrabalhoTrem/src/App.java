@@ -47,6 +47,10 @@ public class App {
                     
                     break;
                 case 2:
+                    if(!p1.cheio()){
+                        System.out.println("Não existe trens no patio para edita-los");
+                        break;
+                    }
                     System.out.println("\nSelecione um trem do pátio para editar");
                     System.out.println(p1);
 
@@ -65,13 +69,13 @@ public class App {
                     
                         System.out.println("\nSelecione um trem do pátio para desmontar:");
     
-                    System.out.println(p1);
+                        System.out.println(p1);
     
-                    int idTremDesmontar = input.nextInt();
+                        int idTremDesmontar = input.nextInt();
 
-                    Trem desmontarTrem = p1.getTrem(idTremDesmontar);
-                    desmontaTrem(desmontarTrem, p1, garagemLocomotivas, garagemVagoes);
-                    break;
+                        Trem desmontarTrem = p1.getTrem(idTremDesmontar);
+                        desmontaTrem(desmontarTrem, p1, garagemLocomotivas, garagemVagoes);
+                        break;
 
                     }
                     
